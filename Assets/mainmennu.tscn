@@ -1,0 +1,158 @@
+[gd_scene load_steps=11 format=3 uid="uid://daan03x5vcdaj"]
+
+[ext_resource type="Texture2D" uid="uid://bk0ymso4qwrgm" path="res://Assets/Main_ui.png" id="1_g1n6o"]
+[ext_resource type="Script" path="res://Assets/Control.gd" id="2_yq3sd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhwau"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7118"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ske6t"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_771pr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0352941, 0.0352941, 0.203922, 0.6)
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+corner_detail = 5
+shadow_color = Color(0.141176, 0.141176, 0.141176, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxi8o"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="SystemFont" id="SystemFont_8fk8d"]
+font_names = PackedStringArray("Georgia")
+
+[sub_resource type="Theme" id="Theme_s3gp4"]
+default_font = SubResource("SystemFont_8fk8d")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.0901961, 0.00784314, 0.00784314, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/styles/disabled = SubResource("StyleBoxFlat_hhwau")
+Button/styles/focus = SubResource("StyleBoxFlat_x7118")
+Button/styles/hover = SubResource("StyleBoxFlat_ske6t")
+Button/styles/normal = SubResource("StyleBoxFlat_771pr")
+Button/styles/pressed = SubResource("StyleBoxFlat_cxi8o")
+
+[sub_resource type="SystemFont" id="SystemFont_oonwf"]
+font_names = PackedStringArray("Algerian")
+
+[node name="Node" type="Node"]
+metadata/_edit_horizontal_guides_ = [84.0, 95.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.54902, 0.631373, 0.631373, 1)
+offset_right = 1155.0
+offset_bottom = 651.0
+texture = ExtResource("1_g1n6o")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.105
+anchor_bottom = 0.245
+offset_right = -80.96
+offset_bottom = -118.76
+theme = SubResource("Theme_s3gp4")
+script = ExtResource("2_yq3sd")
+
+[node name="Play" type="Button" parent="Control"]
+modulate = Color(1, 1, 1, 0.941176)
+layout_mode = 0
+offset_left = 502.0
+offset_top = 330.0
+offset_right = 739.0
+offset_bottom = 427.0
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 463.0
+offset_right = 741.0
+offset_bottom = 571.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 90.0
+offset_top = 141.0
+offset_right = 1227.0
+offset_bottom = 311.0
+theme_override_fonts/font = SubResource("SystemFont_oonwf")
+theme_override_font_sizes/font_size = 100
+text = "SURVIVOR'S INSTINCT"
+
+[connection signal="pressed" from="Control/Play" to="Control" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/Quit" to="Control" method="_on_quit_pressed"]

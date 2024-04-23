@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwi1i7ryiov4f"]
+
+[ext_resource type="Script" path="res://ritish game jam/world.gd" id="1_1mnnx"]
+[ext_resource type="PackedScene" uid="uid://bioht2isy05se" path="res://Scene/player.tscn" id="2_6ao10"]
+[ext_resource type="PackedScene" uid="uid://bnnbjxt432ut" path="res://Assets/bg.tscn" id="3_t7130"]
+
+[sub_resource type="Curve2D" id="Curve2D_ohtur"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 58226.4, -87804.5, 0, 0, 0, 0, 66743.1, 95345.5, 0, 0, 0, 0, -66918.5, 95345.5, 0, 0, 0, 0, -61438.7, -94069)
+}
+point_count = 4
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_1mnnx")
+
+[node name="Node2D" parent="." instance=ExtResource("3_t7130")]
+position = Vector2(342, 317)
+scale = Vector2(1.80668, 1.80668)
+
+[node name="Player" parent="." instance=ExtResource("2_6ao10")]
+position = Vector2(531, 289)
+scale = Vector2(9.3052, 9.3052)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(484, 321)
+scale = Vector2(0.0740901, 0.0595414)
+curve = SubResource("Curve2D_ohtur")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(58226.4, -87804.5)
+rotation = 1.52433
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.194
+autostart = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.443137)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 146
+text = "Game Over"
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

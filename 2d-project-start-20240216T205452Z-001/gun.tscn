@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxhg6h374sw6n"]
+
+[ext_resource type="Script" path="res://2d-project-start-20240216T205452Z-001/gun.gd" id="1_rwb48"]
+[ext_resource type="AudioStream" uid="uid://nfyuvsgucg2f" path="res://Assets/fireball-whoosh-5-179129.ogg" id="2_6pbkc"]
+[ext_resource type="Texture2D" uid="uid://c1tolo1o0xh8c" path="res://ritish game jam/pistol.png" id="2_mm25e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ewi3"]
+radius = 35432.5
+
+[node name="Gun" type="Area2D"]
+position = Vector2(291, 340)
+scale = Vector2(0.0985827, 0.0985827)
+collision_mask = 2
+script = ExtResource("1_rwb48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7.62161, 7.62161)
+shape = SubResource("CircleShape2D_3ewi3")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+position = Vector2(0.000125885, 0)
+rotation = 0.0163739
+
+[node name="pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(303.371, -60.0033)
+rotation = -0.0114853
+scale = Vector2(2.23835, 2.23835)
+texture = ExtResource("2_mm25e")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/pistol"]
+unique_name_in_owner = true
+position = Vector2(67.9193, -12.0025)
+
+[node name="Timer2" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 7.57
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(7.62161, 7.62161)
+stream = ExtResource("2_6pbkc")
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
