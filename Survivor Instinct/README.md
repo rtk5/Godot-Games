@@ -48,14 +48,12 @@ If you'd like to contribute to the development of Survivor's Instinct, feel free
 5. Open a pull request
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Credits
-- **Game Design & Development**: [Your Name]
-- **Art & Assets**: [Artist Name/Tool]
-- **Music & Sound**: [Composer Name/Tool]
-
-## Contact
-For feedback, suggestions, or issues, contact me at [your email].
+This project is licensed under the MIT License 
 
 Enjoy the game and test your survivor's instinct!
+
+## Team members
+- **Rithvik Rajesh Matta**
+- **Rishi A Sheth**
+- **Rishil**
+- **Rithish Bharath**
